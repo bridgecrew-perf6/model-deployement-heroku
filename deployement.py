@@ -59,7 +59,7 @@ with open('./preprocessor', 'rb') as f:
     
 @app.get('/')
 def index():
-    return {'message': 'This is the homepage of the API \nDeveloper: Prabhat Kumar'}
+    return {'message': 'This is the homepage of the API. Developer: Prabhat Kumar'}
 
 @app.post('/prediction')
 def predict_prob_default(data: ModelData):
