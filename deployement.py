@@ -63,16 +63,14 @@ def index():
 
 @app.post('/prediction')
 def get_music_category(data: Music):
-
     received = data.dict()
-    
+    print(type(data))
     series = pd.Series(received)
     df = pd.DataFrame(series).T
     
     X = preprocessor.transform(df)
     probability = model.predict_proba(X)
-
-    return {'Probability of Default': probability[:, 1]}
+    return {'Probability of Default': probability[0, 1]}
 
 if __name__ == '__main__':
 
