@@ -4,3 +4,6 @@ joblib
 fastapi
 pydantic
 sklearn
+gunicorn
+uvloop
+httptools
