@@ -51,7 +51,6 @@ app = FastAPI()
 
 
 with open("./model", "rb") as f:
-
     model = joblib.load(f)
 
 with open('./preprocessor', 'rb') as f:
@@ -60,7 +59,6 @@ with open('./preprocessor', 'rb') as f:
     
 @app.get('/')
 def index():
-
     return {'message': 'This is the homepage of the API '}
 
 @app.post('/prediction')
@@ -78,6 +76,6 @@ def get_music_category(data: Music):
 
 if __name__ == '__main__':
 
-    uvicorn.run(app, host='127.0.0.1', port=4000, debug=True)
+    uvicorn.run(app, host='127.0.0.1', port=4000)
     
     
