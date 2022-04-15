@@ -11,7 +11,7 @@ import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-class Data(BaseModel):
+class ModelData(BaseModel):
     account_amount_added_12_24m : int
     account_days_in_rem_12_24m : float
     avg_payment_span_0_12m : float
@@ -59,10 +59,10 @@ with open('./preprocessor', 'rb') as f:
     
 @app.get('/')
 def index():
-    return {'message': 'This is the homepage of the API '}
+    return {'message': 'This is the homepage of the API \nDeveloper: Prabhat Kumar'}
 
 @app.post('/prediction')
-def predict_prob_default(data: Data):
+def predict_prob_default(data: ModelData):
     received = data.dict()
     print(type(data))
     series = pd.Series(received)
