@@ -11,7 +11,7 @@ import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-class Music(BaseModel):
+class Data(BaseModel):
     account_amount_added_12_24m : int
     account_days_in_rem_12_24m : float
     avg_payment_span_0_12m : float
@@ -62,7 +62,7 @@ def index():
     return {'message': 'This is the homepage of the API '}
 
 @app.post('/prediction')
-def get_music_category(data: Music):
+def predict_prob_default(data: Data):
     received = data.dict()
     print(type(data))
     series = pd.Series(received)
