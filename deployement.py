@@ -74,7 +74,7 @@ def get_music_category(data: Music):
     X = preprocessor.transform(df)
     probability = model.predict_proba(X)
 
-    return {'Probability': probability}
+    return {'Probability of Default': probability[:, 1]}
 
 if __name__ == '__main__':
 
